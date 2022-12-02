@@ -2,9 +2,6 @@ let searchForm = document.querySelector("#search-form");
 let searchInput = document.querySelector("#searchInput");
 let restaurantCard = document.querySelector("#restaurant-card");
 let dogBreeds = document.querySelector("#dog-breeds");
-// let cuisineType = document.querySelector("");
-// let location = document.querySelector("");
-// let priceRange = document.querySelector("");
 
 //functions
 function init() {
@@ -26,14 +23,14 @@ function init() {
 function handleFormSubmit(event) {
   event.preventDefault();
   restaurantCard.innerHTML = "";
-  let locationRequestUrl = "https://worldwide-restaurants.p.rapidapi.com/typeahead?q=Atlanta&language=en_US&currency=USD";
+  let locationRequestUrl = "api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={2a2cf85863caadaf5057aad4f98b3f36}";
   fetch(locationRequestUrl, {
     method: "POST",
-    headers: {
-      "content-type": "application/x-www-form-urlencoded",
-      "X-RapidAPI-Key": "bc1f799ce0mshe02c6b2a2eb17b3p1a13a9jsn5c26cb1c4ec5",
-      "X-RapidAPI-Host": "worldwide-restaurants.p.rapidapi.com",
-    },
+    // headers: {
+    //   "content-type": "application/x-www-form-urlencoded",
+    //   "X-RapidAPI-Key": "bc1f799ce0mshe02c6b2a2eb17b3p1a13a9jsn5c26cb1c4ec5",
+    //   "X-RapidAPI-Host": "worldwide-restaurants.p.rapidapi.com",
+    // },
   })
     .then(function (response) {
       return response.json();
