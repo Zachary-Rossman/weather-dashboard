@@ -22,8 +22,8 @@ function init() {
 
 function handleFormSubmit(event) {
   event.preventDefault();
-  restaurantCard.innerHTML = "";
-  let locationRequestUrl = "api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={2a2cf85863caadaf5057aad4f98b3f36}";
+  restaurantCard.innerHTML = ";"
+  let locationRequestUrl = "api.openweathermap.org/data/2.5/forecast?q=${city}&id=524901&appid=19646f0f6fda25aa9456a943e1eda27b";
   fetch(locationRequestUrl, {
     method: "POST",
     // headers: {
@@ -38,7 +38,7 @@ function handleFormSubmit(event) {
     .then(function (location) {
 let locationID = location.results.data[0].result_object.location_id;
 console.log(locationID)
-      let requestUrl = `https://worldwide-restaurants.p.rapidapi.com/search?language=en_US&limit=30&location_id=${locationID}&currency=USD`;
+      let requestUrl = `api.openweathermap.org/data/2.5/forecast?q=${city}&id=524901&appid=19646f0f6fda25aa9456a943e1eda27b`;
       fetch(requestUrl, {
         method: "POST",
         headers: {
